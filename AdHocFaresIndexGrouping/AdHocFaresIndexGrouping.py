@@ -30,13 +30,13 @@ def main():
     # the full superfile is being grouped by the fields sector and carrier TOC, with the fields Earings and journeys being summed
     print("now grouping and summing the data")
     
-    groupedsuperfile = rawsuperfile.groupby(['Carrier TOC / Third Party Code','Route Code','Origin Code','Destination Code','Product Code','Regulated_Status','Category','sector'],observed=True)['Adjusted Earnings Amount','Operating Journeys'].agg('sum')
+    groupedsuperfile = rawsuperfile.groupby(['Carrier TOC / Third Party Code','Product Code','class','Regulated_Status','Category','sector'],observed=True)['Adjusted Earnings Amount','Operating Journeys'].agg('sum')
     
     #remove aggregations where earnings/journeys are null
     nonagroupedsuperfile = groupedsuperfile.dropna()
 
     #the filtered, grouped and summed data is then exported as a csv file using the imported module sharedfunctions
-    exportfile(nonagroupedsuperfile,outputto, "test agg of superfile")
+    exportfile(nonagroupedsuperfile,outputto, "Aggregated_Fares_Index_Superfile")
 
 
 #standard boilerplate to point compiler to start point of program.
