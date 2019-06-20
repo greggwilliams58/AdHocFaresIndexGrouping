@@ -11,7 +11,7 @@ def main():
     #reading in the data from the csv file and converting into appropriate datatypes
     print("getting superfile for weights")
     rawsuperfile = pd.read_csv(superfilelocation + superfilename,
-                               dtype={'Carrier TOC / Third Party Code':'category','Origin Code':'category','Destination Code':'category','Route Code':'category',
+                               dtype={'Carrier TOC / Third Party Code':'category','Origin Code':'category','Destination Code':'category','Route Code':'category', 'Regulated_Status':'category',
                                       'Product Code':'category','Product Primary Code':'category','class':'category','sector':'category','ticket_type':'category','Category':'category'}
                                )
 
@@ -22,10 +22,10 @@ def main():
     #superfilefiltered = rawsuperfile[rawsuperfile['Category']=='season']
 
     #printing out generic information about the filtered superfile
-    #print("information about the data\n")
-    #print(type(superfilefiltered))
-    #print(superfilefiltered.head(5))
-    #print(superfilefiltered.info())
+    print("information about the data\n")
+    print(type(rawsuperfile))
+    print(rawsuperfile.head(5))
+    print(rawsuperfile.info())
 
     # the full superfile is being grouped by the fields sector and carrier TOC, with the fields Earings and journeys being summed
     print("now grouping and summing the data")
