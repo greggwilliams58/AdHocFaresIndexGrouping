@@ -30,7 +30,9 @@ def main():
     # the full superfile is being grouped by the fields sector and carrier TOC, with the fields Earings and journeys being summed
     print("now grouping and summing the data")
     
-    groupedsuperfile = rawsuperfile.groupby(['Carrier TOC / Third Party Code','Product Code','class','Regulated_Status','Category','sector'],observed=True)['Adjusted Earnings Amount','Operating Journeys'].agg('sum')
+    #example grouping
+    #['Carrier TOC / Third Party Code','Product Code','class','Regulated_Status','Category','sector']
+    groupedsuperfile = rawsuperfile.groupby(['Regulated_Status'],observed=True)['Adjusted Earnings Amount','Operating Journeys'].agg('sum')
     
     #remove aggregations where earnings/journeys are null
     nonagroupedsuperfile = groupedsuperfile.dropna()
