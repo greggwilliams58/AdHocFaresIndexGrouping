@@ -3,8 +3,7 @@ import pandas as pd
 
 
 def main():
-    #Lucy wouldn't make a comment.  No comment here
-
+     # Testing to commit
     #additional test
     #test change to demonstrate github functionality
     #variables holding the location and name of the superfile, as well as the location where the result is sent to 
